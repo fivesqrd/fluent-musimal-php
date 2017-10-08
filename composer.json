@@ -1,0 +1,25 @@
+{
+    "name": "fluent/stacker",
+    "description": "Open source library for building responsive email notifications with minimal markup",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Fluent\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^5.5 || ^7.0"
+    },
+    "require-dev": {
+    },
+    "suggest": {
+        "fluent/client": "Quick and easy message delivery with more advanced features",
+    },
+    "authors": [
+        {
+            "name": "Christian Burger",
+            "email": "christian@fivesqrd.com",
+            "role": "Developer"
+        }
+    ]
+}
