@@ -1,11 +1,12 @@
-# Fluent Stacker for PHP
-Stacker is an open source library for building responsive email notifications with minimal markup. It's great for generating user notifications like password resets, user welcomes, receipts, shipping notifications etc. No views required.
+# Stacker for PHP
+Stacker is a simple open source library for building responsive transactional email notifications quickly with minimal markup. It's great for generating user notifications like password resets, user welcomes, receipts, shipping notifications etc. 
 
 ## Benefits ##
-- Easy API to generate HTML based e-mail bodies in your app
+- Easy API to generate HTML based e-mail messages in your app
 - Cleaner code base with less markup and no views required
-- Less time wrestling with CSS inlining
+- Less time wrestling with tables and CSS inlining
 - Responsive out of the box
+- A free and open alternative to the [Fluent Web Service](http://fluentmsg.com)
 
 ![Mockup](https://github.com/fivesqrd/fluent-stacker-php/blob/1.0/docs/mockups/Responsive-Devices-Website.png "Responsive layout")
 
@@ -13,14 +14,10 @@ Stacker is an open source library for building responsive email notifications wi
 
 To see a real sample in your inbox, head on over to http://fluentmsg.com and send a test email to yourself.
 
-## Design ##
-
-Baked into the Stacker library is a responsive HTML layout and markup various reusable UI components. Currently this repo includes a beautiful minimal theme called [Musimal](https://github.com/fivesqrd/musimal). We hope to add more in the near future.
+## How it works ##
+At the foundation is a single column responsive layout with support for several types of UI components. Each UI component occupies the full width of the layout and the content is built up by stacking one component on top of another. By combining several UI components together, one can easily generate many of the most common types of user notifications needed for a project.  
 
 ## UI Compents ##
-Fluent provides a single column responsive email layout with support for several types of UI components. By combining the various UI components together, one can easily generate many of the most common types of user notifications needed for a project. Each component occupies the full width of the layout and is stacked on top of each other. 
-
-
 The current supported UI components are:
 1. Teaser - a short piece of text displayed on the list of view of most email clients
 2. Logo - image displayed at the top of a message
@@ -30,6 +27,10 @@ The current supported UI components are:
 6. Buttons - call to action button
 7. Segments - custom HTML to be displayed
 8. Footer - a line of text at the bottom for an address, opt out, etc
+
+## Design ##
+
+Baked into the Stacker library is a responsive HTML layout and markup various reusable UI components. Currently this repo includes a beautiful, minimal, open source design called [Musimal](https://github.com/fivesqrd/musimal). We hope to add more designs in the future.
 
 ## Sample Email Layout ##
 Below is a sample of an email layout that uses some of the UI components
@@ -41,6 +42,8 @@ php composer.phar require fluent/stacker:1.0
 ```
 
 For Laravel projects there is an easy to install package available here: https://github.com/Five-Squared/Fluent-Laravel
+
+Not using PHP? Check out our [Fluent Web Service](http://fluentmsg.com) for a cross platform solution with a bunch of extra features.
 
 
 ## Quick Example ##
@@ -56,7 +59,7 @@ $message = (new Fluent\Layout())->create()
 ```
 
 ## Config ##
-Certain aspects can be customised with a config:
+Certain aspects can be customised by passing some config parameters:
 
 ```
 $config = array(
@@ -94,16 +97,18 @@ $headers = [
 mail($to, $subject, $message, implode("\r\n", $headers));
 ```
 
-## Using Fluent Server Features ##
-Although Stacker can render HTML completely on its own. It also alo possible to couple it with Fluent Server to add some advanced features. 
-Fluent Server is a web service that makes email delivery simple and provides a bunch of other helpful features.
+## Fluent Web Service ##
+The Fluent Web Service makes email delivery simple and provides a bunch of other helpful features.
 
-To make use of these features, you'll need a Fluent Server account and the Fluent Client:
+Stacker can be used locally or integrated with the Fluent Web Service to extend its capabilities. 
+
+To make use of these features, you'll need a [Fluent Web Service](http://fluentmsg.com) account and the Fluent Client for PHP:
 ```
 php composer.phar require fluent/client:4.0
 ```
 
-Once the Fluent Client is in place, the following extra methods will become available:
+Once the Fluent Client is in place, the send() method can be used to deliver messages easily:
+
 ### Double action: Create and send ###
 Create and send expressively:
 ```
@@ -127,5 +132,5 @@ $messageId = (new Fluent\Message())->create()
     ->header('Reply-To', 'me@myapp.com')
     ->from('me@myapp.com', 'My App')
     ->to('user@theirdomain.com')
-    ->send(); ;
+    ->send();
 ```
