@@ -29,7 +29,11 @@ class Layout
 
     public function __construct(array $options = array())
     {
-        $this->_options = $options;
+        if (!array_key_exists('layout', $options)) {
+            $this->_options['layout'] = $options;
+        } else {
+            $this->_options = $options;
+        }
     }
 
     /**
