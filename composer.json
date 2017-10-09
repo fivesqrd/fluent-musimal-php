@@ -13,7 +13,7 @@
     "require-dev": {
     },
     "suggest": {
-        "fluent/client": "Quick and easy message delivery with more advanced features",
+        "fluent/client": "Quick and easy message delivery with more advanced features"
     },
     "authors": [
         {
