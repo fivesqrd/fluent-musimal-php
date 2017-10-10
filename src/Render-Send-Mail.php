@@ -22,6 +22,11 @@
 
 require_once (__DIR__ . '/../vendor/autoload.php');
 
+if (!isset($argv[1])) {
+    echo "Usage: {$argv[0]} <email>\n";
+    exit;
+}
+
 $options = array(
     'logo'          => 'My App', //Plain text or publicly available URL. Image not wider than 200px
     'color'         => '#ff6600', //Primary colour
@@ -36,6 +41,9 @@ $message = (new Fluent\Message())->create()
     ->button('http://www.mypony.com', 'Like my pony')
     ->paragraph('Pellentesque habitant morbi tristique senectus et netus et malesuada fames.');
 
-$html = Fluent\Factory::layout($message, $options)->render();
+$headers = [
+    'MIME-Version: 1.0',
+    'Content-type: text/html; charset=iso-8859-1'
+];
 
-echo $html;
+mail($argv[1], 'Test Message', $message, implode("\r\n", $headers));

@@ -1,0 +1,85 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a8b830215926ad38713d949ce9c0b83e",
+    "packages": [
+        {
+            "name": "fivesqrd/fluent-client",
+            "version": "4.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fivesqrd/fluent-client-php.git",
+                "reference": "ac715f4fa183ade6dadf86a9153f09a6747bb7f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fivesqrd/fluent-client-php/zipball/ac715f4fa183ade6dadf86a9153f09a6747bb7f6",
+                "reference": "ac715f4fa183ade6dadf86a9153f09a6747bb7f6",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fluent\\": "src/library"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Christian Burger",
+                    "email": "christian@fivesqrd.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Client side wrapper to the Fluent Web Service",
+            "time": "2017-10-10 11:01:26"
+        },
+        {
+            "name": "fivesqrd/fluent-musimal",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fivesqrd/musimal.git",
+                "reference": "02bc94ea782c1faf22bf84b0517b7b34759340ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fivesqrd/musimal/zipball/02bc94ea782c1faf22bf84b0517b7b34759340ee",
+                "reference": "02bc94ea782c1faf22bf84b0517b7b34759340ee",
+                "shasum": ""
+            },
+            "suggest": {
+                "fluent/client": "Quick and easy message delivery with more advanced features"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fluent\\Theme\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Christian Burger",
+                    "email": "christian@fivesqrd.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Minimal, responsive, open source email design for transactional user notifications.",
+            "time": "2017-10-10 06:31:09"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^5.5 || ^7.0"
+    },
+    "platform-dev": []
+}

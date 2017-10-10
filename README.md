@@ -1,5 +1,5 @@
 # Stacker
-Stacker is a simple implementation of the open source Musimal email layout design using the Fluent library for building responsive transactional email notifications quickly with minimal markup. 
+Stacker is a sample implementation of the open source Musimal email layout design using the Fluent library for building responsive transactional email notifications quickly with minimal markup. 
 
 ## Quick Example ##
 Create a responsive HTML message body:
@@ -70,7 +70,6 @@ Create and send expressively:
 $messageId = (new Fluent\Message($config))->create()
     ->title('My little pony')
     ->paragraph('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
-    ->deliver()
     ->subject('Testing it')
     ->header('Reply-To', 'me@myapp.com')
     ->from('me@myapp.com', 'My App')
@@ -82,6 +81,6 @@ $messageId = (new Fluent\Message($config))->create()
 
 To implement the above you'll need the following composer packages:
 ```
-composer require fivesqrd/fluent:4.0 fivesqrd/fluent-musimal:1.0
+composer require fivesqrd/fluent-client:4.* fivesqrd/fluent-musimal:1.*
 ```
 
