@@ -1,21 +1,42 @@
 <?php
-namespace Fluent\Layout;
+/*
+    Stacker is a simple open source library for building responsive transactional 
+    email notifications quickly with minimal markup. 
 
-use Fluent\Theme;
+    Copyright (C) 2017 Five Squared Digital, fivesqrd.com
 
-class Create
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+namespace Fluent;
+
+/**
+ * @author cjb
+ */
+class Stacker
 {
-    protected $_title;
-    
-    protected $_teaser;
-    
-    protected $_content;
+    protected $_defaults = array(
+        'logo'          => null,
+        'color'         => '#e74c3c',
+        'teaser'        => null,
+        'footer'        => null,
+    );
 
     protected $_options = array();
 
-    public function __construct($options)
+    public function __construct($options = array())
     {
-        $this->_options = $options;
+        $this->_options = array_merge($this->_defaults, $options);
 
         $xml = new \DOMDocument();
         $xml->appendChild(new \DOMElement('content'));
@@ -25,7 +46,7 @@ class Create
     
     /**
      * @param string $text
-     * @return \Fluent\Content\Markup
+     * @return \Fluent\Stacker
      */
     public function title($text)
     {
@@ -35,7 +56,7 @@ class Create
     
     /**
      * @param string $text
-     * @return \Fluent\Content\Markup
+     * @return \Fluent\Stacker
      */
     public function paragraph($text)
     {
@@ -47,7 +68,7 @@ class Create
 
     /**
      * @param string $text
-     * @return \Fluent\Content\Markup
+     * @return \Fluent\Stacker
      */
     public function segment($string)
     {
@@ -59,7 +80,7 @@ class Create
     
     /**
      * @param array $numbers Up to 3 number/caption pairs
-     * @return \Fluent\Content\Markup
+     * @return \Fluent\Stacker
      */
     public function number(array $numbers)
     {
@@ -83,7 +104,7 @@ class Create
     /**
      * @param string $href
      * @param string $text
-     * @return \Fluent\Content\Markup
+     * @return \Fluent\Stacker
      */
     public function button($href, $text)
     {
@@ -120,7 +141,7 @@ class Create
      */
     public function render()
     {
-        return Theme::factory('musimal', $this->toXml())
+        return (new Musimal($this->toXml()))
             ->getLayout($this->_options['layout'])
             ->render();
     }

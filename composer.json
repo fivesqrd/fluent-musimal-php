@@ -1,6 +1,6 @@
 {
-    "name": "fluent/stacker",
-    "description": "Open source library for building responsive email notifications with minimal markup",
+    "name": "fivesqrd/fluent-stacker",
+    "description": "Simple open source library for building responsive transactional email notifications quickly with minimal markup",
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
@@ -11,9 +11,6 @@
         "php": "^5.5 || ^7.0"
     },
     "require-dev": {
-    },
-    "suggest": {
-        "fluent/client": "Quick and easy message delivery with more advanced features"
     },
     "authors": [
         {
