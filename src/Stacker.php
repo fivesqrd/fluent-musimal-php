@@ -28,7 +28,6 @@ class Stacker
     protected $_defaults = array(
         'logo'          => null,
         'color'         => '#e74c3c',
-        'teaser'        => null,
         'footer'        => null,
     );
 
