@@ -1,5 +1,5 @@
 {
-    "name": "fivesqrd/fluent-stacker",
+    "name": "fivesqrd/fluent-solo",
     "description": "Simple open source library for building responsive transactional email notifications quickly with minimal markup",
     "minimum-stability": "dev",
     "autoload": {

@@ -1,5 +1,5 @@
-# Stacker for PHP
-Stacker is a simple open source library for building responsive transactional email notifications quickly with minimal markup. It's great for generating user notifications like password resets, user welcomes, receipts, shipping notifications etc. 
+# Fluent Solo for PHP
+Solo is a simple open source library for building responsive transactional email notifications quickly with minimal markup. It's great for generating user notifications like password resets, user welcomes, receipts, shipping notifications etc. 
 
 ## Benefits ##
 - Easy API to generate HTML based e-mail messages in your app
@@ -8,7 +8,7 @@ Stacker is a simple open source library for building responsive transactional em
 - Responsive out of the box
 - A free and open alternative to the [Fluent Web Service](http://fluentmsg.com)
 
-![Mockup](https://github.com/fivesqrd/fluent-stacker-php/blob/1.0/docs/mockups/Responsive-Devices-Website.png "Responsive layout")
+![Mockup](https://github.com/fivesqrd/fluent-solo-php/blob/1.0/docs/mockups/Responsive-Devices-Website.png "Responsive layout")
 
 ## Live Demo ##
 

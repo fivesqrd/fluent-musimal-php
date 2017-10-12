@@ -1,6 +1,6 @@
 <?php
 /*
-    Stacker is a simple open source library for building responsive transactional 
+    Fluent Solo is a simple open source library for building responsive transactional 
     email notifications quickly with minimal markup. 
 
     Copyright (C) 2017 Five Squared Digital, fivesqrd.com
@@ -23,7 +23,7 @@ namespace Fluent;
 /**
  * @author cjb
  */
-class Stacker
+class Body
 {
     protected $_defaults = array(
         'logo'          => null,
@@ -45,7 +45,7 @@ class Stacker
     
     /**
      * @param string $text
-     * @return \Fluent\Stacker
+     * @return \Fluent\Body
      */
     public function title($text)
     {
@@ -55,7 +55,7 @@ class Stacker
     
     /**
      * @param string $text
-     * @return \Fluent\Stacker
+     * @return \Fluent\Body
      */
     public function paragraph($text)
     {
@@ -67,7 +67,7 @@ class Stacker
 
     /**
      * @param string $text
-     * @return \Fluent\Stacker
+     * @return \Fluent\Body
      */
     public function segment($string)
     {
@@ -79,7 +79,7 @@ class Stacker
     
     /**
      * @param array $numbers Up to 3 number/caption pairs
-     * @return \Fluent\Stacker
+     * @return \Fluent\Body
      */
     public function number(array $numbers)
     {
@@ -103,7 +103,7 @@ class Stacker
     /**
      * @param string $href
      * @param string $text
-     * @return \Fluent\Stacker
+     * @return \Fluent\Body
      */
     public function button($href, $text)
     {
