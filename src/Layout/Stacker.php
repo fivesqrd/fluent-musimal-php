@@ -17,16 +17,20 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-namespace Fluent\Musimal;
+namespace Fluent\Layout;
 
-class Layout
+use Fluent\Layout\Component;
+
+class Stacker
 {
-    protected $_options = array(
+    protected $_defaults = array(
         'logo'           => null,
         'color'          => '#e74c3c',
         'teaser'         => null,
         'footer'         => null,
     );
+
+    protected $_options = array();
     
     protected $_stack = array();
 
@@ -40,7 +44,8 @@ class Layout
     
     public function __construct($options)
     {
-        $this->_options = $options;
+        $this->_options = array_merge($this->_defaults, $options);
+        
         $this->_header = new Header($this->_options['color'], $this->_options['teaser']);
         $this->_footer = new Footer($this->_options['footer']);
         $this->_logo = new Logo($this->_options['logo']);

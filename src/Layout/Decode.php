@@ -17,54 +17,52 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-namespace Fluent;
+namespace Fluent\Layout;
 
-class Musimal
+class Decode
 {
-    protected $_content;
+    protected $_options;
     
-    public function __construct($content)
+    public function __construct($options)
     {
-        $this->_content = $content;
+        $this->_options = $options;
     }
     
-    public function getLayout($options)
+    public function getLayout($xml)
     {
         $doc = new \DOMDocument();
 
-        if (!$doc->loadXML($this->_content)) {
+        if (!$doc->loadXML($xml)) {
             //libxml_use_internal_errors() libxml_get_errors() 
             throw new \Exception('Content XML invalid or not well formed');
         }
         
-        $layout = $this->_parse(
-            new Musimal\Layout($options),
+        return $this->_parseXml(
+            new Stacker($this->_options),
             $doc->childNodes->item(0)->childNodes
         );
-        
-        return $layout;
     }
         
-    protected function _parse($layout, $body)
+    protected function _parseXml($stacker, $nodes)
     {
-        foreach ($body as $node) {
+        foreach ($nodes as $node) {
             switch (strtoupper($node->nodeName)) {
                 case 'TITLE':
-                    $layout->setTitle($node);
+                    $stacker->setTitle($node);
                     break;        
                 case 'PARAGRAPH':
-                    $layout->addParagraph($node);
+                    $stacker->addParagraph($node);
                     break;        
                 case 'BUTTON':
                 case 'CALLOUT':
-                    $layout->addButton($node);
+                    $stacker->addButton($node);
                     break;
                 case 'NUMBERS':
-                    $layout->addNumbers($node);
+                    $stacker->addNumbers($node);
                     break;
             }
         }
         
-        return $layout;
+        return $stacker;
     }
 }

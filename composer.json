@@ -1,6 +1,6 @@
 {
-    "name": "fivesqrd/fluent-solo",
-    "description": "Simple open source library for building responsive transactional email notifications quickly with minimal markup",
+    "name": "fivesqrd/fluent-musimal",
+    "description": "PHP wrapper for the Musimal responsive email design",
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
@@ -8,7 +8,8 @@
         }
     },
     "require": {
-        "php": "^5.5 || ^7.0"
+        "php": "^5.5 || ^7.0",
+        "fivesqrd/fluent-client": "4.*"
     },
     "require-dev": {
     },

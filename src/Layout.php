@@ -17,24 +17,27 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-namespace Fluent\Musimal;
+namespace Fluent;
 
-class Spacer
+class Layout
 {
-    public function render()
+    protected $_options = array();
+    
+    public function __construct($options)
     {
-        return '<tr>
-  <td valign="top" align="center" style="border-collapse:collapse;mso-line-height-rule:exactly;">
-    <table align="center" width="448" border="0" cellspacing="0" cellpadding="0" class="em_wrapper" style="border-collapse:collapse;mso-table-lspace:0px;mso-table-rspace:0px;width:448px;">
-      <tr>
-        <td width="24" style="border-collapse:collapse;mso-line-height-rule:exactly;width:24px;">&nbsp;</td>
-        <td height="35" valign="top" align="center" style="border-collapse:collapse;mso-line-height-rule:exactly;">&nbsp;
-        </td>
-        <td width="24" style="border-collapse:collapse;mso-line-height-rule:exactly;width:24px;">&nbsp;</td>
-      </tr>
-    </table>
-  </td>
-</tr>';
+        $this->_options = $options;
+    }
 
+    public function render($body)
+    {
+        $options = array(
+            'teaser' => $body->getTeaser()
+        );
+
+        $decode = new Layout\Decode(
+            array_merge($this->_options, $options)
+        );
+
+        return $decode->getLayout($body->toString())->render();
     }
 }
