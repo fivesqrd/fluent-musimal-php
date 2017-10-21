@@ -19,8 +19,6 @@
 */
 namespace Fluent\Layout;
 
-use Fluent\Layout\Component;
-
 class Stacker
 {
     protected $_defaults = array(
@@ -46,14 +44,14 @@ class Stacker
     {
         $this->_options = array_merge($this->_defaults, $options);
         
-        $this->_header = new Header($this->_options['color'], $this->_options['teaser']);
-        $this->_footer = new Footer($this->_options['footer']);
-        $this->_logo = new Logo($this->_options['logo']);
+        $this->_header = new Component\Header($this->_options['color'], $this->_options['teaser']);
+        $this->_footer = new Component\Footer($this->_options['footer']);
+        $this->_logo = new Component\Logo($this->_options['logo']);
     }
     
     public function setTitle($node)
     {
-        $this->_title = new Title($node, $this->_options['color']);
+        $this->_title = new Component\Title($node, $this->_options['color']);
 
         return $this;
     }
@@ -61,7 +59,7 @@ class Stacker
     public function addParagraph($node)
     {
         array_push($this->_stack, 
-            new Spacer(), new Paragraph($node)
+            new Component\Spacer(), new Component\Paragraph($node)
         );
         
         return $this;
@@ -70,7 +68,7 @@ class Stacker
     public function addNumbers($node)
     {
         array_push($this->_stack, 
-            new Spacer(), new Number($node)
+            new Component\Spacer(), new Component\Number($node)
         );
 
         return $this;
@@ -79,7 +77,7 @@ class Stacker
     public function addButton($node)
     {
         array_push($this->_stack, 
-            new Spacer(), new Button($node)
+            new Component\Spacer(), new Component\Button($node)
         );
 
         return $this;
@@ -90,10 +88,10 @@ class Stacker
         $content = $this->_logo->render();
 
         if ($this->_title) {
-            $content .= (new Spacer())->render() . $this->_title->render();
+            $content .= (new Component\Spacer())->render() . $this->_title->render();
         }
 
-        array_push($this->_stack, new Spacer());
+        array_push($this->_stack, new Component\Spacer());
 
         foreach ($this->_stack as $partial) {
             $content .= $partial->render();
